@@ -1,0 +1,30 @@
+/* css/style.css */
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+body { font-family: "PingFang SC", "Segoe UI", sans-serif; display: flex; background-color: #f4f7f6; }
+
+#sidebar { 
+    width: 340px; height: 100vh; background: #ffffff; border-right: 1px solid #d1d9e6; 
+    padding: 18px; box-sizing: border-box; z-index: 100; display: flex; 
+    flex-direction: column; gap: 10px; box-shadow: 4px 0 15px rgba(0,0,0,0.05); overflow-y: auto; 
+}
+
+#viewport { flex-grow: 1; height: 100vh; position: relative; background: #eef2f3; cursor: crosshair; }
+
+.stats-card { background: #2c3e50; color: #ecf0f1; padding: 12px; border-radius: 8px; flex-shrink: 0; }
+.stats-item { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px; }
+.efficiency-bar { height: 6px; background: #444; border-radius: 3px; overflow: hidden; }
+.efficiency-fill { height: 100%; background: #2ecc71; width: 0%; transition: 0.5s; }
+
+.group-title { font-size: 12px; font-weight: 700; color: #34495e; margin-top: 5px; border-left: 4px solid #3498db; padding-left: 8px; }
+.input-row { display: flex; gap: 8px; align-items: center; width: 100%; }
+.input-item { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.input-item span { font-size: 10px; color: #7f8c8d; }
+
+input[type="number"], select { width: 100%; padding: 6px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 12px; outline: none; }
+.bulge-input { background-color: #e8f8f5; border: 1px solid #2ecc71; color: #27ae60; font-weight: bold; }
+
+.btn-update { background: #e74c3c; color: #fff; margin-top: 5px; cursor: pointer; border: none; border-radius: 6px; padding: 8px; font-weight: bold; }
+.btn-toggle { background: #95a5a6; color: #fff; cursor: pointer; border: none; border-radius: 6px; padding: 8px; font-weight: bold; }
+
+#mini-container { position: absolute; bottom: 20px; right: 20px; }
+#mini-viewport { width: 220px; height: 220px; background: #fff; border: 2px solid #3498db; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
