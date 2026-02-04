@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 智能堆码专家 V8.3 - Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h2 style="margin:0; font-size: 18px; color: #2c3e50;">📦 堆码专家 V8.3</h2>
+        
+        <div class="stats-card">
+            <div class="stats-item"><span>装载总量:</span><b id="statCount">0 pcs</b></div>
+            <div class="stats-item"><span>空间利用率:</span><b id="statEff">0%</b></div>
+            <div class="efficiency-bar"><div id="effFill" class="efficiency-fill"></div></div>
+        </div>
+
+        <div class="group-title">图片素材上传</div>
+        <div class="upload-card">
+            <div class="upload-field"><label>🖼️ 外箱 Logo</label><input type="file" id="logoInput" accept="image/*"></div>
+            <div class="upload-field"><label>🏷️ 产品标签</label><input type="file" id="labelInput" accept="image/*"></div>
+        </div>
+
+        <div class="group-title">1. 外箱配置</div>
+        <div class="mode-toggle">
+            <button id="mode-outer" class="mode-btn active">外径模式</button>
+            <button id="mode-inner" class="mode-btn">内径模式</button>
+        </div>
+        <div class="input-row">
+            <div class="input-item"><span>长(L)</span><input type="number" id="boxL" value="400" class="calc-trigger"></div>
+            <div class="input-item"><span>宽(W)</span><input type="number" id="boxW" value="300" class="calc-trigger"></div>
+            <div class="input-item"><span>高(H)</span><input type="number" id="boxH" value="300" class="calc-trigger"></div>
+        </div>
+        <div class="input-row">
+            <div class="input-item"><span>厚度(mm)</span><input type="number" id="wallThick" value="4" class="calc-trigger"></div>
+            <div class="input-item"><span>膨胀(mm)</span><input type="number" id="bulgeVal" value="0" class="bulge-input calc-trigger"></div>
+        </div>
+
+        <div class="group-title">2. 内装物 (含间隙)</div>
+        <div class="input-row">
+            <div class="input-item"><span>长</span><input type="number" id="itemL" value="180" class="calc-trigger"></div>
+            <div class="input-item"><span>宽</span><input type="number" id="itemW" value="120" class="calc-trigger"></div>
+            <div class="input-item"><span>高</span><input type="number" id="itemH" value="100" class="calc-trigger"></div>
+        </div>
+        <div class="input-row">
+            <div class="input-item" style="flex: 0.5;"><span>间隙</span><input type="number" id="itemGap" value="0" class="calc-trigger"></div>
+            <div class="input-item" style="flex: 1.5;"><span>算法策略</span>
+                <select id="stackStrategy">
+                    <option value="ultra">🚀 终极全排列</option>
+                    <option value="l_first">📍 长度优先</option>
+                    <option value="w_first">📌 宽度优先</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn-update" id="calcBtn">执行计算 (Enter)</button>
+        <button class="btn-toggle" id="toggleBtn">开启/关闭纸箱</button>
+    </div>
+
+    <div id="viewport">
+        <div id="mini-container">
+            <div id="mini-viewport"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/TransformControls.js"></script>
+    <script src="js/algorithms.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
